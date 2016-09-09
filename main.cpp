@@ -69,7 +69,7 @@ void lista()
 }
 
 
-void ReemplazarDatos()
+void ReemplazarNombre()
 {
     string lNombre,lNombre2;
     
@@ -79,8 +79,6 @@ void ReemplazarDatos()
     cout<<"Cual es el nuevo nombre? = ";
     cin>>lNombre2;
 
-    
-    //mNodos=lPtrCabeza;
     struct mPersona *lCopiaDelNodoOriginal = mNodos;
     
     struct mPersona *lCopiaDelNodoOriginal2 = mNodos;
@@ -91,8 +89,6 @@ void ReemplazarDatos()
         {
             lCopiaDelNodoOriginal->Nombre=lNombre2;
         }
-        
-        
         
         lCopiaDelNodoOriginal = lCopiaDelNodoOriginal->Siguiente;
     }
@@ -110,12 +106,51 @@ void ReemplazarDatos()
  
 }
 
+void ReemplazarEdad()
+{
+    int lEdad,lEdadNueva;
+    
+    cout<<"Cual edad quiere cambiar? = ";
+    cin>>lEdad;
+    
+    cout<<"Cual es la nueva edad? = ";
+    cin>>lEdadNueva;
+    
+    struct mPersona *lCopiaDelNodoOriginal = mNodos;
+    
+    struct mPersona *lCopiaDelNodoOriginal2 = mNodos;
+    
+    while (lCopiaDelNodoOriginal!=NULL)
+    {
+        if (lCopiaDelNodoOriginal->Edad == lEdad)
+        {
+            lCopiaDelNodoOriginal->Edad=lEdadNueva;
+        }
+        
+        lCopiaDelNodoOriginal = lCopiaDelNodoOriginal->Siguiente;
+    }
+    
+    while (lCopiaDelNodoOriginal2!=NULL)
+    {
+        
+        cout<<"Nombre = "<<lCopiaDelNodoOriginal2->Nombre<<endl;
+        cout<<"Edad = "<<lCopiaDelNodoOriginal2->Edad<<endl;
+        
+        lCopiaDelNodoOriginal2 = lCopiaDelNodoOriginal2->Siguiente;
+        
+    }
+    
+    
+}
+
 
 int main(int argc, char** argv) 
 {
     lista();
-    ReemplazarDatos();
-        return 0;
+    ReemplazarNombre();
+    ReemplazarEdad();
+    
+    return 0;
 }
 
 
